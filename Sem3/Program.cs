@@ -80,4 +80,4 @@ double xb = Convert.ToDouble(Console.ReadLine());
 System.Console.Write("Введите координату Y точки B:  ");
 double yb = Convert.ToDouble(Console.ReadLine());
 
-System.Console.WriteLine($"Расстояние между точками А и В = {Math.Round(Distance(xa, ya, xb, yb), 2)}");
+System.Console.WriteLine($"Расстояние между точками А({xa}, {ya}) и В({xb}, {yb}) = {Math.Round(Distance(xa, ya, xb, yb), 2)}");
