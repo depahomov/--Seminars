@@ -35,30 +35,10 @@ public class Answer
     }
 }
 */
+
+/*
 bool IsPalindrome(int number)
 {
-    int number1 = number;
-          if (number > 9999 && number < 100000)
-      {
-          int digit1 = number % 10; number = number / 10;
-          int digit2 = number % 10; number = number / 100;
-          int digit4 = number % 10; number = number / 10;
-          int digit5 = number % 10;
-          if (digit1 == digit5 && digit2 == digit4)
-          {
-            System.Console.Write(number1 + " -> ");
-            return true;
-          }
-          else
-          {
-            System.Console.Write(number1 + " -> ");
-            return false;
-          }
-        
-      }
-    System.Console.WriteLine(number1 + " -> Число не пятизначное");
-    return false;
-    /*
     if (number > 9999 && number < 100000)
     {
         int digit1 = number % 10; number = number / 10;
@@ -77,10 +57,26 @@ bool IsPalindrome(int number)
     }
     System.Console.WriteLine("Число не пятизначное");
     return false;
-    */
 }
 
 System.Console.Write("Введите число: ");
 int number = Convert.ToInt32(System.Console.ReadLine());
 bool result = IsPalindrome(number);
 System.Console.WriteLine(result);
+*/
+
+/*
+Внутри класса Answer напишите метод DistanceBetweenPoints, 
+который принимает на вход координаты двух точек pointA и pointB 
+в виде массива целых чисел, и возвращает расстояние между ними в 3D пространстве.
+*/
+
+double Length(int[] pointA, int[] pointB)
+{
+    // Введите свое решение ниже
+    return Math.Round(Math.Sqrt(Math.Pow(pointB[0] - pointA[0], 2) + Math.Pow(pointB[1] - pointA[1], 2) + Math.Pow(pointB[2] - pointA[2], 2)), 2);
+}
+
+int[] CoordinatsA = { 7, -5, 0 };
+int[] CoordinatsB = { 1, -1, 9 };
+System.Console.WriteLine(Length(CoordinatsA, CoordinatsB ));
