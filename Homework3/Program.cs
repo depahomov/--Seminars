@@ -71,6 +71,7 @@ System.Console.WriteLine(result);
 в виде массива целых чисел, и возвращает расстояние между ними в 3D пространстве.
 */
 
+/*
 double Length(int[] pointA, int[] pointB)
 {
     // Введите свое решение ниже
@@ -80,3 +81,23 @@ double Length(int[] pointA, int[] pointB)
 int[] CoordinatsA = { 7, -5, 0 };
 int[] CoordinatsB = { 1, -1, 9 };
 System.Console.WriteLine(Length(CoordinatsA, CoordinatsB ));
+*/
+
+void ShowCube(int N)
+{
+    // Введите свое решение ниже
+    int Cube(int num)
+    {
+        return num * num * num;
+    }
+    int count = 1;
+    while (count <= N)
+    {
+        System.Console.WriteLine(Cube(count));
+        count++;
+    }
+}
+
+System.Console.Write("Введите число N:  ");
+int number = Convert.ToInt32(System.Console.ReadLine());
+ShowCube(number);
