@@ -82,16 +82,31 @@ SumNumbers(n);
 
 //Задача 4
 // Найти произведение чисел от 1 до N
+
+//вариант 1
+/*
 void Factorial (int num)
 {
     int multiplication = 1;
     for (int i = 2; i <= num; i++)
     {
-        multiplication = multiplication * i;
+        multiplication*=i; //умножение на i и присваивание значения
     }
     System.Console.WriteLine($"Факториал {num} = {multiplication}");
+}
+*/
+
+//вариант 2
+int Factorial (int num)
+{
+    int multiplication = 1;
+    for (int i = 2; i <= num; i++)
+    {
+        multiplication*=i; //умножение на i и присваивание значения
+    }
+    return multiplication;
 }
 
 System.Console.Write("Input N:  ");
 int n = Convert.ToInt32(Console.ReadLine());
-Factorial(n);
+System.Console.WriteLine($"Факториал {n} = {Factorial(n)}");
