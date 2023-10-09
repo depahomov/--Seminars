@@ -110,6 +110,32 @@ int sideC = Convert.ToInt32(Console.ReadLine());
 */
 
 
-// Не используя рекурсию, выведите первые N чисел Фибоначи. Первые два числа равны 1, 1.
+// Не используя рекурсию, выведите первые N чисел Фибоначчи. Первые два числа равны 1, 1.
 
-int[] Fibboyfxb
+void PrintArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        System.Console.Write(array[i] + " ");
+    }
+    //System.Console.WriteLine();
+}
+
+int[] Fibonacci(int n)
+{
+    int[] array = new int[n];
+    array[0] = 0;
+    array[1] = 1;
+    for (int i = 2; i < n; i++)
+    {
+        array[i] = array[i - 1] + array[i - 2];
+    }
+    return array;
+}
+
+System.Console.Write("Input N: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine($"Числа Фибоначчи от 1-го до {n}-го.");
+Console.Write($"Если N = {n} -> ");
+PrintArray(Fibonacci(n));
