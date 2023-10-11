@@ -146,7 +146,7 @@ PrintArray(matrix);
 Сумма элементов главной диагонали: 1+9+2 = 12
 */
 
-/*
+
 int InputInteger(string message)
 {
     Console.Write(message);
@@ -181,7 +181,7 @@ int max = InputInteger("Введите максимальное значение
 int[,] arr = Create2DArray(rows, columns);
 Fill2DArray(arr, min, max);
 Print2DArray(arr);
-*/
+
 /*
 int FindMinimum(int[,] array)
 {
@@ -204,4 +204,4 @@ int GetSumMainDiagonal(int[,] array)
 }
 */
 
-int a = rnd.
+// int a = rnd.

@@ -5,6 +5,7 @@ string text = "(1,2) (2,3) (4,5) (9,7)"
                 .Replace(")", "")
                 ;
 System.Console.WriteLine(text);
+
 var data = text.Split(" ")
                 .Select(item=> item.Split(','))
                 .Select(e => (x: int.Parse(e[0]), y: int.Parse(e[1])))
