@@ -127,24 +127,41 @@ int[,] CreateIncreasingMatrix(int n, int m, int k)
     return array;
 }
 
-/*
+
 int[] FindNumberByPosition(int[,] matrix, int rowPosition, int columnPosition)
 {
     // Введите свое решение ниже
-
-
+    if (rowPosition > matrix.GetLength(0) || columnPosition > matrix.GetLength(1))
+    {
+        int[] arrayOut = { 0 };
+        return arrayOut;
+    }
+    else
+    {
+        int arrayElement = matrix[rowPosition - 1, columnPosition - 1];
+        int[] arrayIn = { arrayElement, 0 };
+        return arrayIn;
+    }
 }
 
-public static void PrintCheckIfError(int[] results, int X, int Y)
+void PrintCheckIfError(int[] results, int X, int Y)
 {
     // Введите свое решение ниже
-
+    if (results.Length < 2)
+    {
+        System.Console.WriteLine("There is no such index");
+    }
+    else
+    {
+        System.Console.WriteLine($"The number in [{X}, {Y}] is {results[0]}");
+    }
 
 }
-*/
+
 int rows = InputInteger("Введите количество строк: ");
 int columns = InputInteger("Введите количество стоблцов: ");
 int number = InputInteger("Введите число, на которое увеличивается каждый новый элемент: ");
 
 int[,] myArray = CreateIncreasingMatrix(rows, columns, number);
 PrintArray(myArray);
+PrintCheckIfError(FindNumberByPosition(myArray, 3, 3), 3, 3);
