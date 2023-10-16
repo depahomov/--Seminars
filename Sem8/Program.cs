@@ -98,27 +98,108 @@ Print2DArray(myArray);
 //4 9 4 2
 //7 2 2 6
 //2 3 4 7
-/*
-oid RowsToColumns(int[,] array)
+
+
+int InputInteger(string message)
 {
-    if (array.GetLength(0) != array.GetLength(1)) System.Console.WriteLine("Invalid array!");
-    else
+    Console.Write(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+void PrintArray(int[,] matrix)
+{
+    // Введите свое решение ниже
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        for (int i = 0; i < array.GetLength(0); i++)
+        for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            for (int j = i + 1; j < array.GetLength(0); j++)
-            {
-                int temp = array[i, j];
-                array[i, j] = array[j, i];
-                array[j, i] = temp;
-            }
+            System.Console.Write(matrix[i, j] + " ");
         }
+        System.Console.WriteLine();
     }
 
+}
+
+int[,] Create2DArray(int rows, int columns)
+{
+    return new int[rows, columns];
+}
+
+void Fill2DArray(int[,] array, int minValue, int maxValue)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+        for (int j = 0; j < array.GetLength(1); j++)
+            array[i, j] = new Random().Next(minValue, maxValue + 1);
+}
+
+// void RowsToColumns(int[,] array)
+// {
+//     if (array.GetLength(0) != array.GetLength(1)) System.Console.WriteLine("Invalid array!");
+//     else
+//     {
+//         for (int i = 0; i < array.GetLength(0); i++)
+//         {
+//             for (int j = i + 1; j < array.GetLength(0); j++)
+//             {
+//                 int temp = array[i, j];
+//                 array[i, j] = array[j, i];
+//                 array[j, i] = temp;
+//             }
+//         }
+//     }
+// }
 
 
-*/
+// ---------------------------------------------------------------------
+//Задание 3. Из двумерного массива целых чисел удалить строку и столбец, 
+// на пересечении которых расположен наименьший элемент.
+// то есть удалаем и строку и столбец в которой находится этот элемент (заменяем нулями)
+
+int[,] DeleteRoesAndColumnWithMin(int[,] array)
+{
+    int minI = 0;
+    int minJ = 0;
+    int min = array[0, 0];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = i + 1; j < array.GetLength(0); j++)
+        {
+            if (array[i, j] < min)
+            {
+                min = array[i, j];
+                minI = i;
+                minJ = j;
+            }
+        }
+
+    }
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        array[i, minJ] = 0;
+    }
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        array[minI, j] = 0;
+    }
+    return array;
+}
 
 
-//Задание 3. Из двумерного массива целых чисел удалить строку и столбец, на пересечении которых расположен наименьший элемент.
-// то есть удалаем и строку и столбец в которой находится этот элемент
+int rows = InputInteger("Введите количество строк: ");
+int columns = InputInteger("Введите количество столбцов: ");
+int minValue = InputInteger("Введите минимальное значение элемента массива: ");
+int maxValue = InputInteger("Введите максимальное значение элемента массива: ");
+
+int[,] myArray = Create2DArray(rows, columns);
+Fill2DArray(myArray, minValue, maxValue);
+System.Console.WriteLine("Исходный массив:");
+PrintArray(myArray);
+System.Console.WriteLine();
+DeleteRoesAndColumnWithMin(myArray);
+System.Console.WriteLine("Изменённый массив:");
+PrintArray(myArray);
+
+
+
+
+
