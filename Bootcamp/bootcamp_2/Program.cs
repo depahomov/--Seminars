@@ -1,4 +1,4 @@
-﻿// 1. Создание массива
+﻿ // 1. Создание массива
 // 2. Заполнить
 //     - руками
 //     - случайно
@@ -9,8 +9,25 @@
 //     - в консоль
 //     - в файл
 
-//using static ArrayCreator;
+using System.Diagnostics;
+
+int[] array = 100_000.Create()
+               .Fill(1, 10 );
+// array.ConvertToStringAndPrintToTerminal();
 
 
-var array = 10.Create();
- 
+int n = 10_000 ;
+Stopwatch sw = new Stopwatch();
+
+sw.Start();
+int max = array.BadGetSum(n);
+sw.Stop();
+System.Console.WriteLine($"BadGetSum: {max} => {sw.ElapsedMilliseconds}");
+
+sw.Reset();
+sw.Start();
+max = array.GoodGetSum(n);
+sw.Stop();
+System.Console.WriteLine($"GoodGetSum: {max} => {sw.ElapsedMilliseconds}");
+
+//System.Console.WriteLine(array.AndPrintToTerminal());
