@@ -66,7 +66,7 @@ int Ackerman(int m, int n)
     }
     else
     {
-        if ((m != 0) && (n == 0))
+        if ((m > 0) && (n == 0))
             return Ackerman(m - 1, 1);
         else
             return Ackerman(m - 1, Ackerman(m, n - 1));
